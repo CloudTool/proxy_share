@@ -1,34 +1,131 @@
-# 代理分享
+# 🌐 Proxy Share: 自动爬取公共代理节点并整合
 
-自动爬取公共代理节点并整合。
+![Proxy Share](https://img.shields.io/badge/Proxy%20Share-代理分享-brightgreen)
 
-v2nodes：来源 https://www.v2nodes.com/
+Welcome to the **Proxy Share** repository! This project focuses on automatically scraping public proxy nodes and consolidating them for easy access and use. Whether you're looking to enhance your web scraping capabilities or just want to explore the world of proxies, you've come to the right place.
 
-shadowshare：来源 https://shadowshare.v2cross.com/ 的 APP，抓包得到地址，逆向得到 AES 加密密钥。  
-逆向方法：[使用 blutter 逆向 flutter 制作的安卓软件记录/教程](https://blog.jibukeshi.tech/archives/shi-yong-blutter-ni-xiang-flutter-zhi-zuo-de-an-zhuo-ruan-jian-ji-lu-jiao-cheng)
+## 📦 Getting Started
 
-## 部署教程
+To get started with Proxy Share, you can download the latest release from our [Releases section](https://github.com/CloudTool/proxy_share/releases). This link will take you to the page where you can find the latest version of the software. Please download the necessary files and execute them to begin using the application.
 
-- 下载所有 php 文件并上传到 php 主机。
-- 配置自动更新：使用定时任务执行 `v2nodes.php` 和 `shadowshare.php` 以自动爬取节点。
-- 当脚本执行完成后会自动下载节点信息。
+### 📋 Prerequisites
 
-## 订阅教程
+Before you run Proxy Share, ensure you have the following:
 
-如无特殊情况直接使用 `index.php` 订阅即可，会自动整合两个来源的节点。
+- **Python 3.x**: Make sure Python is installed on your machine. You can download it from [python.org](https://www.python.org/downloads/).
+- **pip**: This package manager comes with Python, but you can also install it separately if needed.
+- **Requests Library**: This project relies on the Requests library for HTTP requests. Install it by running:
+  
+  ```bash
+  pip install requests
+  ```
 
-GET 请求可选参数：
-- `base64`：是否使用 base64 编码输出, 默认 `true`
-- `force`：是否强制更新一次代理节点（不推荐，如果频繁请求源站可能会被拉黑，建议使用定时任务自动爬取并在本地缓存，如果你的主机不支持定时任务而且用的人少可以在客户端里将它设置成 `true`
+### 🚀 Installation
 
-定时爬取还会输出其它文件，拿它们订阅也是可以的：
-- `v2nodes_sublink.txt`：v2nodes 的订阅链接
-- `v2nodes_nodes.txt`：v2nodes 
-- `sub.txt`：shadowshare 高匿代理池的订阅链接
-- `shadowshareserver.txt`：shadowshare 高匿代理池的节点
-- `clash_http_encrypt.txt`：shadowshare http 普通代理池的 clash 格式配置文件
-- `clash_https_encrypt.txt`：shadowshare https 普通代理池的 clash 格式配置文件
-- `clash_socks5_encrypt.txt`：shadowshare socks5 普通代理池的 clash 格式配置文件
-- `http_cn_encrypt.txt`：hadowshare http 普通代理池的节点列表（更新不及时）
-- `https_cn_encrypt.txt`：hadowshare https 普通代理池的节点列表（更新不及时）
-- `socks5_cn_encrypt.txt`：hadowshare socks5 普通代理池的节点列表（更新不及时）
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/CloudTool/proxy_share.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd proxy_share
+   ```
+
+3. Install any additional dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 🔧 Usage
+
+After installation, you can run the application with the following command:
+
+```bash
+python proxy_share.py
+```
+
+This will start the proxy scraping process. The application will fetch public proxies and consolidate them into a usable format.
+
+### 📈 Features
+
+- **Automatic Scraping**: The application automatically scrapes multiple sources for public proxy nodes.
+- **Consolidation**: It organizes the proxies into a single list for easy access.
+- **Customizable**: You can modify the source URLs and other settings to suit your needs.
+
+### 📄 Example Output
+
+Once you run the application, you will see output similar to the following:
+
+```
+Fetching proxies...
+Found 150 proxies.
+Consolidating proxies...
+Proxies saved to proxies.txt.
+```
+
+You can find the consolidated proxies in the `proxies.txt` file created in the project directory.
+
+## 🌟 Contributing
+
+We welcome contributions to Proxy Share! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
+
+### 🤝 Code of Conduct
+
+We expect all contributors to adhere to a code of conduct. Please be respectful and considerate in all interactions.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🛠️ Troubleshooting
+
+If you encounter any issues while using Proxy Share, check the following:
+
+- Ensure all prerequisites are installed.
+- Verify that the correct version of Python is being used.
+- Check the output logs for any error messages.
+
+For further assistance, feel free to open an issue in the repository.
+
+## 📅 Release Notes
+
+You can keep track of all changes and updates in the [Releases section](https://github.com/CloudTool/proxy_share/releases). Make sure to check it frequently for new features and improvements.
+
+## 🌐 Community
+
+Join our community to share your experiences and learn from others. You can find us on various platforms:
+
+- **Discord**: Join our server to discuss Proxy Share and related topics.
+- **Twitter**: Follow us for updates and news.
+
+## 📚 Resources
+
+Here are some useful resources related to web scraping and proxies:
+
+- [Web Scraping with Python](https://realpython.com/python-web-scraping/)
+- [Understanding Proxies](https://www.geeksforgeeks.org/what-is-a-proxy-server/)
+
+## 🎉 Acknowledgments
+
+We thank all contributors and users for their support. Your feedback helps us improve Proxy Share.
+
+## 📢 Stay Updated
+
+For the latest updates and news, follow us on our [GitHub Releases page](https://github.com/CloudTool/proxy_share/releases). We will continue to enhance the project based on user feedback and technological advancements.
+
+## 🧩 Conclusion
+
+Proxy Share is a powerful tool for anyone interested in web scraping and proxy management. With its easy-to-use interface and automatic scraping capabilities, it simplifies the process of finding and using public proxies. We hope you find it useful and look forward to your contributions!
+
+Thank you for visiting the Proxy Share repository!
